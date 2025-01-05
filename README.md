@@ -44,5 +44,4 @@ Gramtora is a modern social media platform for sharing photos, videos, and momen
 ### Steps:  
 1. Clone this repository:  
    ```bash  
-   git clone https://github.com/AbdelouahedAitessaih/Gramtora.git  
-# Gramtora
+   git clone https://github.com/AbdelouahedAitessaih/Gramtora.git 
