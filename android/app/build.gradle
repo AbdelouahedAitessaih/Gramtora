@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.ait.gramtora.gramtora"
-    compileSdk = flutter.compileSdkVersion
+    compileSdkVersion 34 // Explicitly set compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -16,7 +16,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
@@ -24,10 +24,10 @@ android {
         applicationId = "com.ait.gramtora.gramtora"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion 34 // Explicitly set targetSdkVersion
+        versionCode flutter.versionCode
+        versionName flutter.versionName
     }
 
     buildTypes {

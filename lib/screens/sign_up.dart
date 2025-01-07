@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gramtora/screens/login.dart';
 import 'package:gramtora/tools/widgets.dart';
 
 class SignUp extends StatefulWidget {
@@ -15,10 +16,11 @@ class _SignUpState extends State<SignUp> {
     double height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
           padding: const EdgeInsets.all(8.0),
-          alignment: Alignment.topCenter,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: height * 0.1),
               const Text(
@@ -68,7 +70,11 @@ class _SignUpState extends State<SignUp> {
                   child: ElevatedButton(
                       onPressed: () => {}, child: Text("Sign up"))),
               TextButton(
-                  onPressed: () => {}, child: Text("Do you have an account ?"))
+                  onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Login()),
+                      ),
+                  child: Text("Do you have an account ?"))
             ],
           ),
         ),
