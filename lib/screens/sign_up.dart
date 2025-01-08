@@ -11,6 +11,8 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final formKey = GlobalKey<FormState>();
+  TextEditingController emailController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -54,12 +56,13 @@ class _SignUpState extends State<SignUp> {
                 key: formKey,
                 child: Column(
                   children: [
-                    Widgets.textFormField("Name", (value) {}),
-                    SizedBox(height: height * 0.03),
-                    Widgets.textFormField("Email", (value) {}),
+                    Widgets.textFormField("Name", validateField),
                     SizedBox(height: height * 0.03),
                     Widgets.textFormField(
-                        "Password", (value) {}, Icon(Icons.visibility_off)),
+                        "Email", validateField, null, emailController),
+                    SizedBox(height: height * 0.03),
+                    Widgets.textFormField(
+                        "Password", validateField, Icon(Icons.visibility_off)),
                   ],
                 ),
               ),
@@ -68,7 +71,11 @@ class _SignUpState extends State<SignUp> {
                   height: height * 0.05,
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => {}, child: Text("Sign up"))),
+                      onPressed: () {
+                        formKey.currentState!.save();
+                        if (formKey.currentState!.validate()) {}
+                      },
+                      child: Text("Sign up"))),
               TextButton(
                   onPressed: () => Navigator.push(
                         context,
@@ -80,5 +87,16 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+  String? validateField(value) {
+    if (value.isEmpty || value == null) {
+      return "This field is required.";
+    }
+
+    if (value == emailController.text && !value.contains('@')) {
+      return "Please enter a valid email.";
+    }
+    return null;
   }
 }

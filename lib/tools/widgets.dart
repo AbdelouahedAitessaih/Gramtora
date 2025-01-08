@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Widgets {
   static textFormField(String? hintText, String? Function(String?)? validator,
-      [Widget? suffix]) {
+      [Widget? suffix, TextEditingController? controller]) {
     return TextFormField(
+      controller: controller,
       validator: validator,
       decoration: InputDecoration(
           hintText: hintText,
