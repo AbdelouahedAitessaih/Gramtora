@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gramtora/screens/home.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class BottomNavigationBarWidget extends StatefulWidget {
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   int selectedIndex = 0;
-  List<dynamic> pagesList = [];
+  List<dynamic> pagesList = [Home()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
